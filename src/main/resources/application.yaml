@@ -1,7 +1,7 @@
 spring:
   datasource:
     username: root
-    password: zR3H5z2zRDkM4Nt3
+    password: h6y57rSMnKLeaidx
     url: jdbc:mysql://119.23.60.111:3306/cosmos?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource

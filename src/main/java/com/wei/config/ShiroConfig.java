@@ -18,7 +18,6 @@ public class ShiroConfig {
     @Bean
     public ShiroFilterFactoryBean getShiroFilterFactoryBean(@Qualifier("getDefaultWebSecurityManager") DefaultWebSecurityManager defaultWebSecurityManager) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
-
         //设置安全管理器
         shiroFilterFactoryBean.setSecurityManager(defaultWebSecurityManager);
 
@@ -28,22 +27,15 @@ public class ShiroConfig {
         //user:拥有记住我功能才能访问
         //perms:拥有对某个资源的权限才能访问
         //role:拥有对某个角色的权限才能访问
-
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
-
         //授权
         filterChainDefinitionMap.put("/user/add", "perms[user:add]");
         filterChainDefinitionMap.put("/user/updata", "perms[user:updata]");
-
         //拦截
         filterChainDefinitionMap.put("/user/*", "authc");
-
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
-
-
         //设置登录请求
         shiroFilterFactoryBean.setLoginUrl("/toLogin");
-
         //未授权请求跳转
         shiroFilterFactoryBean.setUnauthorizedUrl("/unauth");
         return shiroFilterFactoryBean;
